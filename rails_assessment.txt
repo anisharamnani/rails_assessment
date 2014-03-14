@@ -1,17 +1,27 @@
 How does rails communicate with the database?  Please be thorough in discussing all the config files and pieces of rails necessary to communicate with the database.
 
+Rails communicates with db using ORM, ActiveRecord. Routes are created in the config directory. When a URL is typed in by a client, it goes to the controller. The controller will direct the program to the models with the given variables. The models inherit from ActiveRecord::Base and therefore have ActiveRecord methods that excute sql to read/write infromation from the database.
+
 What is a resource?
+A resource is a data type store in rails app.
 
 What are the standard RESTful routes for a resource?
+index, new, create, edit, update, show, destroy
 
 What is CRUD?
+CRUD is create, read, update, and destroy.
 
 What is REST?
+REST is for represenational state transfer. It is convenction of different routes used to perform different tasks in an app. 
 
 What is the difference between CRUD and REST?
+CRUD is an app's ability to create, read, update, and delete items in the db. REST is used to determine which routes parts of the application should be located at.
 
 Describe the flow of a request from a users browser through the rails stack and back.
+The client enters a url. The url is matched with routes in the config/routes. The matched route leads to the directed controller. If the controller is associated with a model, the app retrieves data using ActiveRecord. The required data is then sent back ot the controller where it is then sent to the corresponding view. The view sends this information to the client's browser in the from of an html string, which is then displayed in the client's browser.
 
 What are HTTP verbs?
+HTTP verbs indicate different actions and requests that can be made. HTPP GET is to retrieve data from the server. HTPP POST is to send data from the client to the server. HTTP DELETE is to remove date from the server.
 
 Why do we use migrations.
+We use migrations to update our database. We can also rollback migrations in order to undo exectuted changes to the db.
